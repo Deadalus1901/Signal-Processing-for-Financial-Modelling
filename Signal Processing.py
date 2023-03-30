@@ -94,11 +94,11 @@ amp_thresh = 0.004  # 40 pips
 
 prices["position"] = 0
 prices.loc[
-    (prices.signal >= signal_thresh), 
+    (prices.signal >= signal_thresh) & 
     (prices.amplitude > amp_thresh), "position"
 ] = -1
 prices.loc[
-    (prices.signal <= -signal_thresh), 
+    (prices.signal <= -signal_thresh) & 
     (prices.amplitude > amp_thresh), "position"
 ] = 1
 fig, axes = plt.subplots(
